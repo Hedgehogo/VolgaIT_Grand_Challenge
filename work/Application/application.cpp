@@ -108,25 +108,10 @@ bool Application::runAuto(State &state) {
 	const auto destination = car.getDestination();
 	
 	if(distance(destination.center, location) - destination.radius > 0) {
-		// Разгоняемся до максимальной допустимой скорости
-		double maxSpeed{1};
-		for (const auto& trafficSign : state.getRoad().getSigns()) {
-			// Знак и значение на нем
-			const auto type = trafficSign.getType();
-			const auto value = trafficSign.getValue();
-			// Индекс полосы и положение знака относительно ее начала
-			const auto index = trafficSign.getLaneIndex();
-			const auto location = trafficSign.getLocation();
-			
-			if(TrafficSign::MaximumSpeedLimit) {
-				maxSpeed = std::max(maxSpeed, value);
-			}
-		}
+		// Разгоняемся до максимальной скорости
 		car.setGear(Gear::Forward);
-		if(speed < maxSpeed) {
-			car.pressGasPedal(maxSpeed);
-		} else {
-			car.pressBrakePedal(maxSpeed);
+		if(speed < 1) {
+			car.pressGasPedal(1);
 		}
 		
 		// Поворачиваем в сторону точки назначения
