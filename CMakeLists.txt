@@ -22,4 +22,4 @@ add_executable(VolgaIT_Grand_Challenge "main.cpp"
         "emulator/TrafficSign.hpp"
         "emulator/Unit.hpp"
         "emulator/Vehicle.hpp"
-        work/Aplication/aplication.cpp work/Aplication/aplication.hpp)
+        work/Application/application.cpp work/Application/application.hpp)

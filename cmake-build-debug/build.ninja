@@ -73,11 +73,11 @@ build CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Processor.cpp.obj: CXX_COM
   OBJECT_DIR = CMakeFiles\VolgaIT_Grand_Challenge.dir
   OBJECT_FILE_DIR = CMakeFiles\VolgaIT_Grand_Challenge.dir\emulator
 
-build CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj: CXX_COMPILER__VolgaIT_Grand_Challenge_Debug C$:/Users/Professional/CLionProjects/VolgaIT_Grand_Challenge/work/Aplication/aplication.cpp || cmake_object_order_depends_target_VolgaIT_Grand_Challenge
-  DEP_FILE = CMakeFiles\VolgaIT_Grand_Challenge.dir\work\Aplication\aplication.cpp.obj.d
+build CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Application/application.cpp.obj: CXX_COMPILER__VolgaIT_Grand_Challenge_Debug C$:/Users/Professional/CLionProjects/VolgaIT_Grand_Challenge/work/Application/application.cpp || cmake_object_order_depends_target_VolgaIT_Grand_Challenge
+  DEP_FILE = CMakeFiles\VolgaIT_Grand_Challenge.dir\work\Application\application.cpp.obj.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles\VolgaIT_Grand_Challenge.dir
-  OBJECT_FILE_DIR = CMakeFiles\VolgaIT_Grand_Challenge.dir\work\Aplication
+  OBJECT_FILE_DIR = CMakeFiles\VolgaIT_Grand_Challenge.dir\work\Application
 
 
 # =============================================================================
@@ -87,7 +87,7 @@ build CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj:
 #############################################
 # Link the executable VolgaIT_Grand_Challenge.exe
 
-build VolgaIT_Grand_Challenge.exe: CXX_EXECUTABLE_LINKER__VolgaIT_Grand_Challenge_Debug CMakeFiles/VolgaIT_Grand_Challenge.dir/main.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Emulator.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Loader.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Processor.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj
+build VolgaIT_Grand_Challenge.exe: CXX_EXECUTABLE_LINKER__VolgaIT_Grand_Challenge_Debug CMakeFiles/VolgaIT_Grand_Challenge.dir/main.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Emulator.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Loader.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Processor.cpp.obj CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Application/application.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\VolgaIT_Grand_Challenge.dir

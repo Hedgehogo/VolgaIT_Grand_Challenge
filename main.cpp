@@ -1,5 +1,5 @@
 #include "emulator/Emulator.hpp"
-#include "work/Aplication/aplication.hpp"
+#include "work/Application/application.hpp"
 
 #include <conio.h>
 #include <windows.h>

@@ -1,4 +1,4 @@
-#include "aplication.hpp"
+#include "application.hpp"
 
 double distance(Location first, Location second) {
 	return std::sqrt(std::pow(second.x - first.x, 2) + std::pow(second.y - first.y, 2));
@@ -216,8 +216,8 @@ void Application::draw(State &state) {
 	
 	// Добавляем дорогу
 	{
-		auto list = state.getRoad().getLanes();
-		for(auto &lane: list) {
+		auto laneList = state.getRoad().getLanes();
+		for(auto &lane: laneList) {
 			Location location{lane.getLocation()};
 			Direction direction{lane.getDirection()};
 			location.y += 2;
@@ -228,26 +228,24 @@ void Application::draw(State &state) {
 				print(location, direction, '=');
 			}
 		}
+		
+		auto signList = state.getRoad().getSigns();
+		for(auto &sign: signList) {
+			Location laneLocation{laneList[sign.getLaneIndex()].getLocation()};
+			Location signLocation{state.getRoad().getLanes()[sign.getLaneIndex()].getLocation()};
+			signLocation = {laneLocation.x + signLocation.x, laneLocation.y + signLocation.y + 2};
+			if(sign.getType() == TrafficSign::Type::MaximumSpeedLimit) {
+				print(signLocation, '-');
+			} else {
+				print(signLocation, '+');
+			}
+		}
 	}
 	
 	// Добавляем точку назначения
 	{
 		Circle destination = state.getCar().getDestination();
 		print(destination.center, destination.radius, '*');
-	}
-	
-	// Добавляем дорожные знаки
-	{
-		auto list = state.getRoad().getSigns();
-		for(auto &sign: list) {
-			Location location{sign.getLocation()};
-			location.y += 2;
-			if(sign.getType() == TrafficSign::Type::MaximumSpeedLimit) {
-				print(location, '-');
-			} else {
-				print(location, '+');
-			}
-		}
 	}
 	
 	// Добавляем остальные автомобили
