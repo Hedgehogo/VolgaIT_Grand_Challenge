@@ -104,22 +104,43 @@ bool Application::runAuto(State &state) {
 		const auto otherLocation = vehicle.getLocation();
 	}
 	
-	// Первое время пробуем набрать скорость
-	if (currentTime < 100) {
-		// Включаем передачу для движения вперед
-		car.setGear(Gear::Forward);
-		// Нажимаем педаль газа (от 0 до 1)
-		car.pressGasPedal(0.2);
-	} else {
-		// Нейтральная передача
-		car.setGear(Gear::Neutral);
-		// Педаль тормоза (от 0 до 1)
-		car.pressBrakePedal(1);
-	}
+	// Точка назначения
+	const auto destination = car.getDestination();
 	
-	if (currentTime > 50) {
-		// Поворачиваем (от -1 влево до 1 вправо, 0 - прямо)
-		car.turnSteeringWheel(0.8);
+	if(distance(destination.center, location) - destination.radius > 0) {
+		// Разгоняемся до максимальной допустимой скорости
+		double maxSpeed{1};
+		for (const auto& trafficSign : state.getRoad().getSigns()) {
+			// Знак и значение на нем
+			const auto type = trafficSign.getType();
+			const auto value = trafficSign.getValue();
+			// Индекс полосы и положение знака относительно ее начала
+			const auto index = trafficSign.getLaneIndex();
+			const auto location = trafficSign.getLocation();
+			
+			if(TrafficSign::MaximumSpeedLimit) {
+				maxSpeed = std::max(maxSpeed, value);
+			}
+		}
+		car.setGear(Gear::Forward);
+		if(speed < maxSpeed) {
+			car.pressGasPedal(maxSpeed);
+		} else {
+			car.pressBrakePedal(maxSpeed);
+		}
+		
+		// Поворачиваем в сторону точки назначения
+		double currentAngle = std::atan((destination.center.y - location.y) / (destination.center.x - location.x));
+		double desiredAngle = std::atan(direction.dy / direction.dx);
+		if(currentAngle > desiredAngle) {
+			car.turnSteeringWheel(std::abs(currentAngle - desiredAngle) / speed);
+		} else {
+			car.turnSteeringWheel(-std::abs(currentAngle - desiredAngle) / speed);
+		}
+	} else {
+		// Тормозим
+		car.setGear(Gear::Neutral);
+		car.pressBrakePedal(1);
 	}
 	
 	// Пробуем что-то отобразить
