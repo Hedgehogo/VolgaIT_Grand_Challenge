@@ -1,0 +1,3 @@
+C:/Users/Professional/CLionProjects/VolgaIT_Grand_Challenge/cmake-build-debug/CMakeFiles/VolgaIT_Grand_Challenge.dir
+C:/Users/Professional/CLionProjects/VolgaIT_Grand_Challenge/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Professional/CLionProjects/VolgaIT_Grand_Challenge/cmake-build-debug/CMakeFiles/rebuild_cache.dir

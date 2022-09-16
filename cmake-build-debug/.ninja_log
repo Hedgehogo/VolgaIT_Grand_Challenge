@@ -1,0 +1,14 @@
+# ninja log v5
+7	3054	6850344473207302	CMakeFiles/VolgaIT_Grand_Challenge.dir/main.cpp.obj	5b3cac38bca490b7
+15	1262	6850161767830185	CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Processor.cpp.obj	ddf3b47aa20919dc
+5	1313	6850161768350218	CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Emulator.cpp.obj	3126bfdd617cf48
+20	1562	6850161770850389	CMakeFiles/VolgaIT_Grand_Challenge.dir/emulator/Loader.cpp.obj	4825e6d916b7984f
+4051	4240	6850356785307083	VolgaIT_Grand_Challenge.exe	6a28863bc6ebcb46
+6	4050	6850356783436928	CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj	3d695b9a2b649e29
+5	5239	6850363471922934	CMakeFiles/VolgaIT_Grand_Challenge.dir/main.cpp.obj	5b3cac38bca490b7
+9	5372	6850363473263014	CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj	3d695b9a2b649e29
+5372	5630	6850363475783204	VolgaIT_Grand_Challenge.exe	6a28863bc6ebcb46
+8	3794	6850365418041778	CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj	3d695b9a2b649e29
+3795	3988	6850365419931913	VolgaIT_Grand_Challenge.exe	6a28863bc6ebcb46
+6	4046	6850366874014538	CMakeFiles/VolgaIT_Grand_Challenge.dir/work/Aplication/aplication.cpp.obj	3d695b9a2b649e29
+4047	4258	6850366876054689	VolgaIT_Grand_Challenge.exe	6a28863bc6ebcb46
