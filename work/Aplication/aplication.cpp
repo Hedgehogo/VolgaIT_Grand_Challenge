@@ -133,51 +133,11 @@ bool Application::runManually(State &state) {
 	// Мой автомобиль
 	auto& car = state.getCar();
 	
-	// Текущее время (номер итерации или число уже вызванных run) и его лимит (лимит итераций)
-	const auto currentTime = state.getCurrentTime();
-	const auto timeLimit = state.getTimeLimit();
-	
 	// Текущее положение, направление и скорость
-	const auto location = car.getLocation();
-	const auto direction = car.getDirection();
 	const auto speed = car.getCurrentSpeed();
-	
-	// Полосы движения
-	for (const auto& lane : state.getRoad().getLanes()) {
-		// Положение, ширина и длина дороги
-		const auto laneLocation = lane.getLocation();
-		const auto laneDirection = lane.getDirection();
-	}
-	
-	// Дорожные знаки
-	for (const auto& trafficSign : state.getRoad().getSigns()) {
-		// Знак и значение на нем
-		const auto type = trafficSign.getType();
-		const auto value = trafficSign.getValue();
-		// Индекс полосы и положение знака относительно ее начала
-		const auto index = trafficSign.getLaneIndex();
-		const auto location = trafficSign.getLocation();
-		
-		switch (type) {
-			case TrafficSign::MinimumSpeedLimit:
-				// Ограничение минимальной скорости
-				break;
-			
-			case TrafficSign::MaximumSpeedLimit:
-				// Ограничение максимальной скорости
-				break;
-		}
-	}
-	
-	// Другие учатники движения
-	for (const auto& vehicle : state.getVisibleVehicles()) {
-		const auto otherLocation = vehicle.getLocation();
-	}
 	
 	// Очищаем значения с прошлого кадра
 	car.turnSteeringWheel(0);
-	car.pressBrakePedal(0.0);
-	car.pressGasPedal(0.05);
 	car.setGear(Gear::Neutral);
 	
 	// Читаем клавиши с клавиатуры
@@ -281,6 +241,7 @@ void Application::draw(State &state) {
 		auto list = state.getRoad().getSigns();
 		for(auto &sign: list) {
 			Location location{sign.getLocation()};
+			location.y += 2;
 			if(sign.getType() == TrafficSign::Type::MaximumSpeedLimit) {
 				print(location, '-');
 			} else {
